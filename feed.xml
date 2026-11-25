@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TailRef Studio — News</title>
+    <link>https://tailref.github.io/news/</link>
+    <description>Release notes and development updates for TailRef Studio, a free and open-source reference board, drawing workspace and 3D pose tool for artists.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 25 Nov 2026 09:00:00 GMT</lastBuildDate>
+    <atom:link href="https://tailref.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://tailref.github.io/assets/logo.png</url>
+      <title>TailRef Studio</title>
+      <link>https://tailref.github.io/</link>
+    </image>
+    <item>
+      <title>TailRef is now playable in your browser</title>
+      <link>https://tailref.github.io/news/tailref-is-now-playable-in-your-browser.html</link>
+      <guid isPermaLink="true">https://tailref.github.io/news/tailref-is-now-playable-in-your-browser.html</guid>
+      <pubDate>Tue, 24 Nov 2026 12:00:00 GMT</pubDate>
+      <description>Press Run tool on the itch.io page and the workspace opens in your browser: drop in references, arrange the board, draw, pose. Here is what the demo can and cannot do.</description>
+    </item>
+    <item>
+      <title>TailRef Studio 1.4.4 is out — now on macOS</title>
+      <link>https://tailref.github.io/news/tailref-studio-144-is-out-now-on-macos.html</link>
+      <guid isPermaLink="true">https://tailref.github.io/news/tailref-studio-144-is-out-now-on-macos.html</guid>
+      <pubDate>Tue, 24 Nov 2026 18:41:21 GMT</pubDate>
+      <description>Native builds for Apple silicon and Intel, .tail boards that open from Finder, a release check that starts the packaged app before shipping, and a long pass over the settings panel.</description>
+    </item>
+    <item>
+      <title>TailRef Studio 1.4.3 is out — now on Linux</title>
+      <link>https://tailref.github.io/news/tailref-studio-143-is-out-now-on-linux.html</link>
+      <guid isPermaLink="true">https://tailref.github.io/news/tailref-studio-143-is-out-now-on-linux.html</guid>
+      <pubDate>Mon, 23 Nov 2026 12:00:00 GMT</pubDate>
+      <description>AppImage, deb and rpm builds with desktop integration and file associations. The native inkcore module is now compiled per platform instead of shipping a Windows binary.</description>
+    </item>
+    <item>
+      <title>TailRef Studio 1.4.2 is out — and it updates itself now</title>
+      <link>https://tailref.github.io/news/tailref-studio-142-is-out-and-it-updates-itself-now.html</link>
+      <guid isPermaLink="true">https://tailref.github.io/news/tailref-studio-142-is-out-and-it-updates-itself-now.html</guid>
+      <pubDate>Sat, 21 Nov 2026 12:00:00 GMT</pubDate>
+      <description>The first build on itch.io: automatic updates from GitHub Releases, GPL-3.0-or-later licensing and a full security audit pass.</description>
+    </item>
+  </channel>
+</rss>

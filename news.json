@@ -1,0 +1,207 @@
+{
+  "generated": "2026-11-25",
+  "items": [
+    {
+      "source": "release",
+      "tag": "v1.4.4",
+      "title": "TailRef Studio v1.4.4",
+      "date": "2026-11-24",
+      "excerpt": "# TailRef Studio 1.4.4 A free, open-source workspace for artists who work from references: collect references, draw over them and pose 3D models in one window. Every build below…",
+      "url": "https://tailref.github.io/news/release.html?tag=v1.4.4",
+      "body": "# TailRef Studio 1.4.4\n\nA free, open-source workspace for artists who work from references:\ncollect references, draw over them and pose 3D models in one window.\n\nEvery build below is version **1.4.4** and comes from the same source tree.\n\nThe download list is grouped by platform: asset names start with **Windows-**, **Linux-** or **macOS-**.\n\n## Windows\n\n| File | What it is |\n|---|---|\n| `Windows-TailRef-1.4.4-Setup.exe` | Installer. Recommended: it updates itself from GitHub Releases. |\n| `Windows-TailRef-1.4.4-Portable.exe` | Portable. No installation; run it from any folder. |\n\nWindows 10 or 11, 64-bit.\n\n## Linux\n\n| File | Best for |\n|---|---|\n| `Linux-TailRef-1.4.4-x86_64.AppImage` | Most distributions. One file, no installation. |\n| `Linux-TailRef-1.4.4-amd64.deb` | Ubuntu, Debian, Linux Mint and derivatives. |\n| `Linux-TailRef-1.4.4-x86_64.rpm` | Fedora, openSUSE and derivatives. |\n\nx86_64 (amd64). The deb and rpm packages add the menu entry, the icon\nand the `.tail` file association. AppImage users can integrate it with\nAppImageLauncher or follow `docs/LINUX_INSTALLATION.md`.\n\nFlatpak: the manifest is in `flatpak/` for Flathub submission. TailRef is\n**not** published on Flathub yet; no Flatpak bundle is attached here.\n\n## macOS\n\n| File | Best for |\n|---|---|\n| `macOS-TailRef-1.4.4-arm64.dmg` | Apple silicon (M1 and later). |\n| `macOS-TailRef-1.4.4-x64.dmg` | Intel Macs. |\n\nOpen the disk image, drag **TailRef Studio** into `Applications`, then launch\nit from there.\n\nThe macOS builds are ad-hoc signed but **not notarized** (the project has no\nApple Developer ID). Gatekeeper therefore blocks the first launch:\nright-click the app, choose **Open**, and confirm. If macOS still refuses,\nclear the quarantine flag once:\n\n```bash\nxattr -dr com.apple.quarantine \"/Applications/TailRef Studio.app\"\n```\n\nmacOS builds do not update themselves; download the new disk image.\n\n## Installation\n\n**Windows** — run the installer, or the portable `.exe`. Uninstalling does\nnot delete your projects.\n\n**Linux (AppImage)**\n\n```bash\nchmod +x Linux-TailRef-1.4.4-x86_64.AppImage\n./Linux-TailRef-1.4.4-x86_64.AppImage\n```\n\nIf FUSE is unavailable: `./Linux-TailRef-1.4.4-x86_64.AppImage --appimage-extract-and-run`.\n\n**Linux (deb)**\n\n```bash\nsudo apt install ./Linux-TailRef-1.4.4-amd64.deb\n```\n\n**Linux (rpm)**\n\n```bash\nsudo dnf install ./Linux-TailRef-1.4.4-x86_64.rpm      # Fedora\nsudo zypper install ./Linux-TailRef-1.4.4-x86_64.rpm   # openSUSE\n```\n\nFull instructions: `docs/LINUX_INSTALLATION.md` and `docs/INSTALLATION.md`.\n\n**macOS** — open the `.dmg` for your architecture, drag the app into\n`Applications` and launch it. The first launch needs right-click → **Open**\n(see the macOS section above); full instructions: `docs/MACOS.md`.\n\n## Requirements\n\n- **Windows:** Windows 10 or 11, 64-bit.\n- **macOS:** macOS 12 (Monterey) or newer, Apple silicon or Intel.\n- **Linux:** x86_64, glibc 2.25 or newer (Ubuntu 20.04+, Debian 11+,\n  Fedora 32+; Ubuntu 22.04 and 24.04 tested), GTK 3 and a working\n  OpenGL driver. The optional native ink module needs glibc 2.35 and\n  is skipped on older systems; drawing then uses the JavaScript path.\n- No internet connection is required. The Pinterest, ArtStation and\n  YouTube Music panels need internet only while you use them.\n\n## Checksums\n\n`SHA256SUMS.txt` is attached to this release and covers every binary asset.\n\n```bash\nsha256sum -c SHA256SUMS.txt --ignore-missing   # Linux, files you downloaded\nshasum -a 256 macOS-TailRef-1.4.4-arm64.dmg    # macOS, Apple silicon\nGet-FileHash .\\Windows-TailRef-1.4.4-Portable.exe -Algorithm SHA256   # Windows PowerShell\n```\n\nBuilds are **not code-signed**. Windows SmartScreen and some Linux package\nmanagers may warn about an unknown publisher. Verify the checksum first.\n\n## Known limitations\n\n- Automatic in-app updates are Windows-only (NSIS build). Linux builds\n  update through the package manager, AppImageLauncher or a fresh download;\n  macOS builds update by downloading the new disk image. The updater is\n  disabled off Windows instead of installing a Windows package.\n- Only x86_64/amd64 is built for Windows and Linux. macOS is built for\n  Apple silicon and Intel; other architectures are not published.\n- The macOS builds are ad-hoc signed and not notarized, so Gatekeeper\n  asks for a right-click → Open on first launch.\n- The deb and rpm packages are not signed with a distribution repository key.\n- Flatpak is prepared for Flathub but not yet submitted or accepted.\n\n## Upgrading\n\n- **Windows installer:** in-app update, or install the new release over the old one.\n- **Windows portable:** replace the `.exe`; projects and settings stay in `%APPDATA%\\TailRef`.\n- **Linux deb/rpm:** install the new package; settings stay in `~/.config/TailRef`.\n- **Linux AppImage:** replace the file. Projects and `.tail` files are unchanged.\n- **macOS:** open the new disk image and replace the app in `Applications`.\n  Projects and `.tail` files are unchanged.\n\nThe `.tail` project format is unchanged across platforms and versions.\n\n## Troubleshooting\n\n- **Blank canvas or GPU crash on Linux:** try `LIBGL_ALWAYS_SOFTWARE=1` or\n  launch with `--disable-gpu`. Update Mesa/NVIDIA drivers first.\n- **Wayland window or input problems:** launch with `--ozone-platform=x11`.\n- **\"Port 5178 is already in use\":** close the other TailRef instance.\n- **AppImage will not start:** install `libfuse2`, or use\n  `--appimage-extract-and-run`.\n- **macOS: \"TailRef Studio is damaged\" or \"unidentified developer\":** the\n  build is not notarized. Right-click → **Open**, or clear the quarantine\n  flag with `xattr -dr com.apple.quarantine \"/Applications/TailRef Studio.app\"`.\n\n## Changelog\n\n### Added — macOS support\n\n- **macOS builds:** disk images for Apple silicon (`macOS-TailRef-1.4.4-arm64.dmg`)\n  and Intel (`macOS-TailRef-1.4.4-x64.dmg`). The configuration lives under\n  `build.mac`; the release pipeline builds the native module for both\n  architectures and produces one image per architecture.\n- **`.tail` file association:** a `CFBundleDocumentTypes` entry plus an\n  `app.on('open-file')` handler. Double-clicking a board in Finder now behaves\n  like Windows and Linux: the path is forwarded to a running window, or\n  consumed by the renderer on a cold start.\n- **Ad-hoc signing:** `mac.identity: \"-\"`, hardened runtime and\n  `build/entitlements.mac.plist`. Without an Apple Developer ID the images are\n  not notarized, so Gatekeeper asks for confirmation on the first launch\n  (see `docs/MACOS.md`).\n- **`build-native.js --arch=`:** cross-architecture builds from a single\n  runner (x64 `inkcore.node` on an arm64 runner).\n- **A real launch check in CI:** `scripts/launch-smoke.js` starts the `.app`\n  copied out of the disk image in a temporary data folder and on an isolated\n  port, then verifies `appReady` and the board scene. A package that does not\n  start cannot be released.\n\n### Changed - platform-prefixed release assets\n\nRelease assets are now named after the platform first, so the download list\ngroups itself: `Windows-TailRef-<version>-Setup.exe` and\n`Windows-TailRef-<version>-Portable.exe`, `Linux-TailRef-<version>-x86_64.AppImage`,\n`Linux-TailRef-<version>-amd64.deb` and `Linux-TailRef-<version>-x86_64.rpm`,\n`macOS-TailRef-<version>-arm64.dmg` and `macOS-TailRef-<version>-x64.dmg`.\n`latest.yml` keeps its name because the Windows updater requires it; it points\nat the renamed installer, so in-app updates keep working.\n\n### Fixed - settings and interface audit\n\n- **High contrast never applied.** Its selector had the same specificity as the\n  theme selector, so the colors were silently overridden.\n- **Rain and snow were invisible in custom themes.** A custom theme saved from\n  Rain/Snow lost both the effect and the backdrop gradient; the theme model now\n  stores `effect` and `backdropCss`, and canvas visibility is driven by\n  `html[data-ambient]`.\n- **The theme reverted on a mode switch.** A gallery pick is now written to the\n  active mode key (`tailref-theme-draw` / `tailref-theme-reference`).\n- **\"Cursor-anchored zoom\" was a dead setting.** It now zooms around the\n  pointer; the default is on, which preserves the old behavior.\n- **\"Editor grid step\" was a dead setting.** It now drives the `#gridOverlay`\n  background size; the default is 32 px.\n- **The settings footer was clipped.** The e-mail and copyright lines moved to\n  a CSS grid; the copyright sits under the e-mail and the buttons span both\n  lines.\n- **Narrowing the panel collapsed the settings text to one letter per line.**\n  `#settings` is a container query now: below 560 px the navigation becomes a\n  horizontal strip, the footer text takes the full width and Save/Reset move to\n  their own row.\n- **Empty-board hint:** the logo and wordmark were removed.\n- **Mode order:** identical in every panel (`3D Pose → Reference → Drawing`).\n- **The update panel now describes macOS correctly.** With the updater\n  disabled it said \"On Linux…\" on every platform; macOS has its own sentence,\n  translated into all nine languages.\n- **Drawing-mode top bar:** buttons are pinned to 30 px, and the bar no longer\n  stretches; the collapse/expand animation is back.\n\n### Localization\n\n- The remaining 275 translation keys were closed in 8 languages: 10 languages,\n  15087 keys, no key falls back to English (`MAX_UNTRANSLATED = 0`).\n\n---\n\nTailRef is free software under **GPL-3.0-or-later**. Source, issues and\ndocumentation: <https://github.com/Roxsmb/tailref>.\n",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "size": 359,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/latest.yml"
+        },
+        {
+          "name": "Linux-TailRef-1.4.4-amd64.deb",
+          "size": 106248296,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-amd64.deb"
+        },
+        {
+          "name": "Linux-TailRef-1.4.4-x86_64.AppImage",
+          "size": 131883034,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-x86_64.AppImage"
+        },
+        {
+          "name": "Linux-TailRef-1.4.4-x86_64.rpm",
+          "size": 94783965,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-x86_64.rpm"
+        },
+        {
+          "name": "macOS-TailRef-1.4.4-arm64.dmg",
+          "size": 127894986,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/macOS-TailRef-1.4.4-arm64.dmg"
+        },
+        {
+          "name": "macOS-TailRef-1.4.4-x64.dmg",
+          "size": 133790524,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/macOS-TailRef-1.4.4-x64.dmg"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "size": 868,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/SHA256SUMS.txt"
+        },
+        {
+          "name": "Windows-TailRef-1.4.4-Portable.exe",
+          "size": 114707106,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Portable.exe"
+        },
+        {
+          "name": "Windows-TailRef-1.4.4-Setup.exe",
+          "size": 126671853,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Setup.exe"
+        },
+        {
+          "name": "Windows-TailRef-1.4.4-Setup.exe.blockmap",
+          "size": 133573,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Setup.exe.blockmap"
+        }
+      ]
+    },
+    {
+      "source": "itch",
+      "title": "TailRef is now playable in your browser",
+      "date": "2026-11-24",
+      "excerpt": "Press Run tool on the itch.io page and the workspace opens in your browser: drop in references, arrange the board, draw, pose. Here is what the demo can and cannot do.",
+      "url": "https://roxsmb.itch.io/tailref/devlog/1804342/tailref-is-now-playable-in-your-browser"
+    },
+    {
+      "source": "itch",
+      "title": "TailRef Studio 1.4.4 is out - now on macOS",
+      "date": "2026-11-24",
+      "excerpt": "Native builds for Apple silicon and Intel, .tail boards that open from Finder, a release check that starts the packaged app before shipping, and a long pass over the settings panel.",
+      "url": "https://roxsmb.itch.io/tailref/devlog/1804278/tailref-studio-144-is-out-now-on-macos"
+    },
+    {
+      "source": "release",
+      "tag": "v1.4.3",
+      "title": "TailRef Studio v1.4.3",
+      "date": "2026-11-23",
+      "excerpt": "# TailRef Studio 1.4.3 A free, open-source workspace for artists who work from references: collect references, draw over them and pose 3D models in one window. Every build below…",
+      "url": "https://tailref.github.io/news/release.html?tag=v1.4.3",
+      "body": "# TailRef Studio 1.4.3\n\nA free, open-source workspace for artists who work from references:\ncollect references, draw over them and pose 3D models in one window.\n\nEvery build below is version **1.4.3** and comes from the same source tree.\n\n## Windows\n\n| File | What it is |\n|---|---|\n| `TailRef_Studio_Setup.exe` | Installer. Recommended: it updates itself from GitHub Releases. |\n| `TailRef_Studio.exe` | Portable. No installation; run it from any folder. |\n\nWindows 10 or 11, 64-bit.\n\n## Linux\n\n| File | Best for |\n|---|---|\n| `TailRef-1.4.3.AppImage` | Most distributions. One file, no installation. |\n| `tailref_1.4.3_amd64.deb` | Ubuntu, Debian, Linux Mint and derivatives. |\n| `tailref-1.4.3.x86_64.rpm` | Fedora, openSUSE and derivatives. |\n\nx86_64 (amd64). The deb and rpm packages add the menu entry, the icon\nand the `.tail` file association. AppImage users can integrate it with\nAppImageLauncher or follow `docs/LINUX_INSTALLATION.md`.\n\nFlatpak: the manifest is in `flatpak/` for Flathub submission. TailRef is\n**not** published on Flathub yet; no Flatpak bundle is attached here.\n\n## Installation\n\n**Windows** — run the installer, or the portable `.exe`. Uninstalling does\nnot delete your projects.\n\n**Linux (AppImage)**\n\n```bash\nchmod +x TailRef-1.4.3.AppImage\n./TailRef-1.4.3.AppImage\n```\n\nIf FUSE is unavailable: `./TailRef-1.4.3.AppImage --appimage-extract-and-run`.\n\n**Linux (deb)**\n\n```bash\nsudo apt install ./tailref_1.4.3_amd64.deb\n```\n\n**Linux (rpm)**\n\n```bash\nsudo dnf install ./tailref-1.4.3.x86_64.rpm      # Fedora\nsudo zypper install ./tailref-1.4.3.x86_64.rpm   # openSUSE\n```\n\nFull instructions: `docs/LINUX_INSTALLATION.md` and `docs/INSTALLATION.md`.\n\n## Requirements\n\n- **Windows:** Windows 10 or 11, 64-bit.\n- **Linux:** x86_64, glibc 2.25 or newer (Ubuntu 20.04+, Debian 11+,\n  Fedora 32+; Ubuntu 22.04 and 24.04 tested), GTK 3 and a working\n  OpenGL driver. The optional native ink module needs glibc 2.35 and\n  is skipped on older systems; drawing then uses the JavaScript path.\n- No internet connection is required. The Pinterest, ArtStation and\n  YouTube Music panels need internet only while you use them.\n\n## Checksums\n\n`SHA256SUMS.txt` is attached to this release and covers every binary asset.\n\n```bash\nsha256sum -c SHA256SUMS.txt --ignore-missing   # Linux, files you downloaded\nGet-FileHash .\\TailRef_Studio.exe -Algorithm SHA256   # Windows PowerShell\n```\n\nBuilds are **not code-signed**. Windows SmartScreen and some Linux package\nmanagers may warn about an unknown publisher. Verify the checksum first.\n\n## Known limitations\n\n- Automatic in-app updates are Windows-only (NSIS build). Linux builds\n  update through the package manager, AppImageLauncher or a fresh download;\n  the updater is disabled on Linux instead of installing a Windows package.\n- Only x86_64/amd64 is built. ARM64 is not published.\n- The deb and rpm packages are not signed with a distribution repository key.\n- Flatpak is prepared for Flathub but not yet submitted or accepted.\n\n## Upgrading\n\n- **Windows installer:** in-app update, or install the new release over the old one.\n- **Windows portable:** replace the `.exe`; projects and settings stay in `%APPDATA%\\TailRef`.\n- **Linux deb/rpm:** install the new package; settings stay in `~/.config/TailRef`.\n- **Linux AppImage:** replace the file. Projects and `.tail` files are unchanged.\n\nThe `.tail` project format is unchanged across platforms and versions.\n\n## Troubleshooting\n\n- **Blank canvas or GPU crash on Linux:** try `LIBGL_ALWAYS_SOFTWARE=1` or\n  launch with `--disable-gpu`. Update Mesa/NVIDIA drivers first.\n- **Wayland window or input problems:** launch with `--ozone-platform=x11`.\n- **\"Port 5178 is already in use\":** close the other TailRef instance.\n- **AppImage will not start:** install `libfuse2`, or use\n  `--appimage-extract-and-run`.\n\n## Changelog\n\n### Added — Linux support\n\n- **Linux packages:** AppImage, deb and rpm targets for x86_64\n  (`TailRef-<version>.AppImage`, `tailref_<version>_amd64.deb`,\n  `tailref-<version>.x86_64.rpm`). The electron-builder configuration lives\n  under `build.linux`, `build.appImage`, `build.deb` and `build.rpm`.\n- **Desktop integration:** menu entry, 512×512 icon, the `Graphics` category\n  and the `application/x-tailref-board` MIME type. Installing the deb or rpm\n  makes `.tail` files open on double-click; the `shared-mime-info` and\n  `desktop-file-utils` package triggers register them automatically.\n- **Window and file handling:** Linux uses the PNG icon, enables\n  `--ozone-platform-hint=auto` for Wayland, and resolves the `file://` URIs\n  passed by the desktop entry as `.tail` paths.\n- **Native module:** `scripts/build-native.js` detects the Linux/macOS\n  toolchain (cc/gcc/clang, make, python3), builds for `process.arch` and\n  supports offline headers through `TAILREF_NODEDIR`. If the module cannot be\n  built, the JavaScript fallback takes over.\n- **Update policy:** in-app updates are disabled on Linux\n  (`reason = 'platform'`); a Windows installer is never downloaded on Linux.\n  Updates come from the package manager or a new AppImage.\n- **Release pipeline:** `release.yml` is now split into the `prepare`, `test`,\n  `windows`, `linux` and `release` jobs. Windows and Linux build on separate\n  runners, package contents are verified, `SHA256SUMS.txt` is generated, and\n  the GitHub Release is created only when every job is green.\n  `latest-linux.yml` is deliberately not published.\n- **Release notes:** `scripts/release-notes.js` generates\n  `dist/RELEASE_NOTES.md` with per-platform downloads, requirements,\n  checksums, known limitations, upgrading and troubleshooting sections.\n- **Flatpak preparation:** a Flathub manifest, AppStream metadata, desktop\n  entry, `zypak` launcher and pinned npm/Electron sources under `flatpak/`.\n  No submission has been made to Flathub; it must not be presented as\n  published.\n- **Documentation:** `docs/LINUX_BUILD.md`, `docs/LINUX_INSTALLATION.md`,\n  `docs/RELEASE_PROCESS.md` and `docs/FLATPAK.md`; the README download table\n  and FAQ now cover Linux.\n- **CI:** pure gates on Ubuntu, Linux packaging and an AppImage/Xvfb smoke\n  test were added.\n\n### Changed\n\n- **`.tail` file type description:** the file association now carries the\n  \"TailRef Studio document\" description. The Windows Explorer \"Type\" column\n  and the Linux \"Open with\" list show this name. The open command, icon and\n  extension registration are unchanged.\n\n---\n\nTailRef is free software under **GPL-3.0-or-later**. Source, issues and\ndocumentation: <https://github.com/Roxsmb/tailref>.\n",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "size": 345,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/latest.yml"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "size": 623,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/SHA256SUMS.txt"
+        },
+        {
+          "name": "TailRef-1.4.3.AppImage",
+          "size": 131734874,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/TailRef-1.4.3.AppImage"
+        },
+        {
+          "name": "tailref-1.4.3.x86_64.rpm",
+          "size": 94764897,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/tailref-1.4.3.x86_64.rpm"
+        },
+        {
+          "name": "tailref_1.4.3_amd64.deb",
+          "size": 106160580,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/tailref_1.4.3_amd64.deb"
+        },
+        {
+          "name": "TailRef_Studio.exe",
+          "size": 114664479,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/TailRef_Studio.exe"
+        },
+        {
+          "name": "TailRef_Studio_Setup.exe",
+          "size": 126583501,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/TailRef_Studio_Setup.exe"
+        },
+        {
+          "name": "TailRef_Studio_Setup.exe.blockmap",
+          "size": 133532,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.3/TailRef_Studio_Setup.exe.blockmap"
+        }
+      ]
+    },
+    {
+      "source": "itch",
+      "title": "TailRef Studio 1.4.3 is out - now on Linux",
+      "date": "2026-11-23",
+      "excerpt": "AppImage, deb and rpm builds with desktop integration and file associations. The native inkcore module is now compiled per platform instead of shipping a Windows binary.",
+      "url": "https://roxsmb.itch.io/tailref/devlog/1800768/tailref-studio-143-is-out-now-on-linux"
+    },
+    {
+      "source": "release",
+      "tag": "v1.4.2",
+      "title": "TailRef Studio v1.4.2",
+      "date": "2026-11-21",
+      "excerpt": "TailRef Studio 1.4.2 adds automatic updates for the installed build, together with the security hardening and the move to GPL-3.0-or-later. ### Automatic updates - **GitHub…",
+      "url": "https://tailref.github.io/news/release.html?tag=v1.4.2",
+      "body": "TailRef Studio 1.4.2 adds automatic updates for the installed build, together with the security hardening and the move to GPL-3.0-or-later.\n\n### Automatic updates\n\n- **GitHub Releases based updates:** an end-to-end update flow built with `electron-updater`, `electron-builder` and GitHub Actions. The installed (NSIS) build updates itself; the portable `.exe` only offers the GitHub download page.\n- **Update lifecycle:** first check 25 seconds after startup, then every 4 hours while the app runs, plus a manual check in Settings → About. Checks never block startup.\n- **Preference:** automatic update checks can be turned off. A skipped version is ignored by automatic checks but is reported again by a manual check.\n- **User interface:** the About page shows checking / up to date / update available / downloading / downloaded / error states with a progress bar and release notes; a chip in the top bar appears only when an update exists.\n- **Data safety:** a save handshake runs before installation. In auto-save mode the current board is flushed to disk; in manual mode, if there are unsaved changes, the user chooses **Save and restart**, **Restart without saving** or **Cancel**. If saving fails or the renderer does not answer, installation is postponed — the window is never force-closed.\n- **Error handling:** clear messages for offline, GitHub rate limits, disk space, corrupt downloads and unknown errors. Failed automatic checks back off 30 min → 1 hour → 4 hours.\n- **Stable channel:** prereleases (`allowPrerelease`) and downgrades are disabled on stable builds. `vX.Y.Z-beta.N` tags are published as GitHub prereleases and are never offered to stable installations.\n- **Release pipeline:** a tag-driven Release workflow validates the tag against `package.json`, runs every gate and test, performs the security audit, builds the NSIS installer and the portable executable, validates `latest.yml` and the blockmap, uploads the assets and re-verifies the published release. A failed validation never produces a release.\n\n### Security\n\n- Full security audit: file path policy, external link allow-list, Electron fuses, CSP/sandbox/webview hardening and a secret scan.\n- Update logic lives only in the main process; the preload exposes a narrow `update:*` bridge. Every IPC call verifies that the sender is the main window, so the renderer has no access to Node, the filesystem or the updater object.\n- Release notes and version metadata are sanitised before they reach the UI, and no publishing credentials exist in the source.\n- Electron upgraded to 45.4.1; `npm audit --omit=dev` is clean.\n\n### License\n\n- **GPL-3.0-or-later:** TailRef is now distributed under the **GNU General Public License, version 3 or later**. `LICENSE` contains the full GPL-3.0 text and the SPDX field in `package.json` and `package-lock.json` is `GPL-3.0-or-later`.\n- **Commercial use allowed:** commercial use, modification, redistribution and selling are permitted under the GPL terms. \"Written permission required\", \"source-available\" and \"noncommercial\" wording was removed from the README, FAQ, NOTICE, TRADEMARK, contribution documents and the in-app About text.\n- **Contribution policy:** a GPL-compatible \"inbound = outbound\" policy. No CLA or copyright assignment is required; the draft `docs/CLA.md` was archived as `docs/archive/CLA-draft-retired.md`.\n- **Copyright holder:** Emre Melik Nameli. TailRef Studio is only a release brand; the in-app About and footer copyright line was corrected accordingly.\n- **Third parties:** third-party components keep their own licenses; GPL compatibility and review notes are in `THIRD_PARTY_NOTICES.md`. The full migration record is in `docs/LICENSE_MIGRATION.md`.\n\n### Downloads\n\n- `TailRef_Studio_Setup.exe` — installer with automatic updates (recommended).\n- `TailRef_Studio.exe` — portable build, manual download only.\n- `SHA256SUMS.txt` — SHA-256 hashes for both executables.\n- `latest.yml` and `TailRef_Studio_Setup.exe.blockmap` — update metadata read by `electron-updater`.\n\nBuilds are not code-signed, so Windows SmartScreen may warn. Verify the hashes before running.\n\n### License and source\n\nGPL-3.0-or-later. The corresponding source is the `v1.4.2` tag in this repository.\n",
+      "assets": [
+        {
+          "name": "latest.yml",
+          "size": 345,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.2/latest.yml"
+        },
+        {
+          "name": "SHA256SUMS.txt",
+          "size": 178,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.2/SHA256SUMS.txt"
+        },
+        {
+          "name": "TailRef_Studio.exe",
+          "size": 114670236,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.2/TailRef_Studio.exe"
+        },
+        {
+          "name": "TailRef_Studio_Setup.exe",
+          "size": 126585945,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.2/TailRef_Studio_Setup.exe"
+        },
+        {
+          "name": "TailRef_Studio_Setup.exe.blockmap",
+          "size": 133474,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.2/TailRef_Studio_Setup.exe.blockmap"
+        }
+      ]
+    },
+    {
+      "source": "itch",
+      "title": "TailRef Studio 1.4.2 is out - and it updates itself now",
+      "date": "2026-11-21",
+      "excerpt": "The first build on itch.io: automatic updates from GitHub Releases, GPL-3.0-or-later licensing and a full security audit pass.",
+      "url": "https://roxsmb.itch.io/tailref/devlog/1796860/tailref-studio-142-is-out-and-it-updates-itself-now"
+    },
+    {
+      "source": "release",
+      "tag": "v1.4.1",
+      "title": "TailRef Studio 1.4.1",
+      "date": "2026-11-20",
+      "excerpt": "## TailRef Studio 1.4.1 **Reference. Draw. Pose.** A reference board, drawing workspace and 3D posing studio for artists - in one Windows app. ### Downloads | File | What it is |…",
+      "url": "https://tailref.github.io/news/release.html?tag=v1.4.1",
+      "body": "## TailRef Studio 1.4.1\n\n**Reference. Draw. Pose.** A reference board, drawing workspace and 3D posing studio for artists - in one Windows app.\n\n### Downloads\n\n| File | What it is |\n|---|---|\n| `TailRef_Studio.exe` | Portable build. Run it from any folder; no installation or admin rights needed. |\n| `TailRef_Studio_Setup.exe` | Windows installer with optional desktop and Start Menu shortcuts. |\n| `SHA256SUMS.txt` | SHA-256 checksums for both executables. |\n\n**Requirements:** Windows 10 or 11, 64-bit.\n\n> These builds are **not code-signed**, so Windows SmartScreen may warn about an unknown publisher. Verify the SHA-256 checksum in `SHA256SUMS.txt` before running a build.\n\n**License:** TailRef is free and open-source software under the GNU General Public License, version 3 or later (GPL-3.0-or-later). You may use, study, modify, redistribute and sell it, including for commercial work, under the GPL. See [LICENSE](https://github.com/Roxsmb/tailref/blob/main/LICENSE).\n\n> **Note:** TailRef moved to GPL-3.0-or-later on 2026-11-21. Copies distributed under the earlier PolyForm Noncommercial license remain covered by the terms they were received under.\n\n**Docs:** [Installation](https://github.com/Roxsmb/tailref/blob/main/docs/INSTALLATION.md) | [Features](https://github.com/Roxsmb/tailref/blob/main/docs/FEATURES.md) | [Roadmap](https://github.com/Roxsmb/tailref/blob/main/docs/ROADMAP.md)",
+      "assets": [
+        {
+          "name": "SHA256SUMS.txt",
+          "size": 177,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.1/SHA256SUMS.txt"
+        },
+        {
+          "name": "TailRef_Studio.exe",
+          "size": 114331334,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.1/TailRef_Studio.exe"
+        },
+        {
+          "name": "TailRef_Studio_Setup.exe",
+          "size": 126215008,
+          "url": "https://github.com/Roxsmb/tailref/releases/download/v1.4.1/TailRef_Studio_Setup.exe"
+        }
+      ]
+    }
+  ]
+}

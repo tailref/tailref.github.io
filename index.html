@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TailRef Studio — Reference Board &amp; 3D Pose Tool for Artists</title>
+<meta name="description" content="Free, open-source app for artists: collect references on an infinite board, draw over them with pressure-sensitive ink and pose 3D models in one window.">
+<link rel="canonical" href="https://tailref.github.io/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#ffffff">
+<meta name="author" content="Emre Melik Nameli">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://api.github.com" crossorigin>
+<link rel="alternate" type="application/rss+xml" title="TailRef Studio news" href="https://tailref.github.io/feed.xml">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="TailRef Studio">
+<meta property="og:title" content="TailRef Studio — collect, draw and pose in one window">
+<meta property="og:description" content="A free, open source workspace for artists: reference board, pressure-sensitive ink and a 3D pose tool in one project.">
+<meta property="og:url" content="https://tailref.github.io/">
+<meta property="og:image" content="https://tailref.github.io/assets/og.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="TailRef Studio workspace with a reference board, palettes and 3D poses">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TailRef Studio — collect, draw and pose in one window">
+<meta name="twitter:description" content="Free, open source reference board, ink workspace and 3D pose tool for artists.">
+<meta name="twitter:image" content="https://tailref.github.io/assets/og.png">
+
+<link rel="icon" href="assets/favicon.png" sizes="256x256" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="assets/hero.webp" type="image/webp" fetchpriority="high">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://tailref.github.io/#website",
+      "url": "https://tailref.github.io/",
+      "name": "TailRef Studio",
+      "description": "Free, open-source reference board, ink workspace and 3D pose tool for artists.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://tailref.github.io/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://tailref.github.io/#organization",
+      "name": "TailRef Studio",
+      "url": "https://tailref.github.io/",
+      "description": "An independent studio building free, open-source tools for artists.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tailref.github.io/assets/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "founder": { "@type": "Person", "name": "Emre Melik Nameli", "url": "https://roxsmb.github.io" },
+      "sameAs": [
+        "https://github.com/Roxsmb/tailref",
+        "https://github.com/tailref",
+        "https://roxsmb.itch.io/tailref",
+        "https://www.buymeacoffee.com/roxsmb",
+        "https://roxsmb.github.io"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tailref.github.io/#app",
+      "name": "TailRef Studio",
+      "alternateName": "TailRef",
+      "applicationCategory": "DesignApplication",
+      "applicationSubCategory": "Reference board, drawing and 3D posing app for artists",
+      "operatingSystem": "Windows 10, Windows 11, macOS 12 or newer, Linux x86_64",
+      "softwareVersion": "1.4.4",
+      "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "downloadUrl": "https://tailref.github.io/#download",
+      "installUrl": "https://tailref.github.io/#download",
+      "releaseNotes": "https://tailref.github.io/news/release.html",
+      "description": "TailRef Studio keeps the whole reference loop in one project: images on an infinite board, pressure-sensitive ink on top of them and a 3D mannequin to block the pose.",
+      "featureList": [
+        "Infinite reference board with groups, notes and palette extraction",
+        "Pressure-sensitive ink engine with layers, masks and blend modes",
+        "Photoshop .abr brush import and export",
+        "3D posing with a built-in two-figure mannequin, IK and lighting",
+        "Beauty, alpha, depth, normal and wireframe render passes up to 8K",
+        "Batch image grading with a non-destructive FX stack",
+        "Works offline; projects are plain .tail files"
+      ],
+      "screenshot": [
+        "https://tailref.github.io/assets/board.jpg",
+        "https://tailref.github.io/assets/draw.jpg",
+        "https://tailref.github.io/assets/pose.jpg",
+        "https://tailref.github.io/assets/editor.jpg"
+      ],
+      "author": { "@id": "https://tailref.github.io/#organization" },
+      "publisher": { "@id": "https://tailref.github.io/#organization" },
+      "sameAs": [
+        "https://github.com/Roxsmb/tailref",
+        "https://roxsmb.itch.io/tailref"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tailref.github.io/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is TailRef really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. TailRef is free and open source under GPL-3.0-or-later. There is no paid tier, no subscription and no account. Donations are optional."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does TailRef work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Everything runs on your machine and projects are plain .tail files on your disk. Only the optional ArtStation and Pinterest panels and update checks use the internet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which formats can I bring in and out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Images in the common web and print formats, plus Photoshop .abr brush libraries. Export as PNG, JPEG, WebP, AVIF, BMP, ICO or PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use my own 3D models?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not yet. The built-in two-figure mannequin covers most posing work today, and loading your own FBX, GLTF/GLB and OBJ files is in development. Follow the devlog for updates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does TailRef replace Photoshop or Clip Studio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. TailRef is built for the reference and blocking stage: collect, annotate, pose, and take the result into your painting app as an image or PDF."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does macOS warn on first launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The builds are ad-hoc signed but not notarized by Apple. Right-click the app and choose Open once; after that it launches normally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do I report a bug or ask for a feature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open an issue on GitHub. Small reproductions with the project file attached are the fastest way to get a fix."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="./" aria-label="TailRef Studio — home">
+      <img class="brand-mark" src="assets/logo.png" width="36" height="36" alt="" decoding="async">
+      <span class="brand-text">TailRef<em>Studio</em></span>
+    </a>
+
+          <button class="nav-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#screens">Screenshots</a>
+      <a href="#news">News</a>
+      <a href="#download">Download</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="head-actions">
+      <a class="head-link" href="https://github.com/Roxsmb/tailref" rel="noopener" aria-label="Source code on GitHub">
+        <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A7.995 7.995 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <a class="head-link head-link-text" href="https://roxsmb.itch.io/tailref" rel="noopener">itch.io</a>
+            <a class="head-link head-link-support" href="https://www.buymeacoffee.com/roxsmb" rel="noopener" aria-label="Support TailRef — buy me a coffee">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h11v5.2a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8.5Z"/><path d="M15 9.5h1.7a2.2 2.2 0 0 1 0 4.4H15"/><path d="M7.5 3.4v1.8M11 3v2.2"/></svg>
+        <span class="support-text">Support</span>
+      </a>
+      <a class="btn btn-sm" href="#download" data-primary-download>Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero-copy">
+      <p class="eyebrow">Free and open source · Windows, macOS, Linux</p>
+      <h1>Collect. Draw. Pose.<span>In one window.</span></h1>
+      <p class="lede">TailRef Studio keeps the whole reference loop in a single project: images on an infinite board, pressure-sensitive ink on top of them, and a 3D mannequin to block the pose — all on your own machine.</p>
+
+      <div class="hero-cta">
+        <a class="btn btn-lg" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Setup.exe" data-primary-download data-os-label>Download for Windows</a>
+        <a class="btn btn-lg btn-ghost" href="#download">All downloads</a>
+      </div>
+
+      <p class="hero-meta">
+        Version <strong data-version>1.4.4</strong>
+        <span class="dot" aria-hidden="true"></span> <span data-os-size>121 MB</span>
+        <span class="dot" aria-hidden="true"></span> GPL-3.0
+        <span class="dot" aria-hidden="true"></span> No account needed
+      </p>
+    </div>
+
+    <figure class="hero-shot">
+      <div class="wrap">
+        <picture><source srcset="assets/hero.webp" type="image/webp"><img src="assets/hero.png" width="1600" height="878" alt="The TailRef Studio workspace: a reference board with palettes, 3D poses, a selection panel and a pomodoro timer" fetchpriority="high" decoding="async"></picture>
+      </div>
+    </figure>
+  </section>
+
+  <section class="pillars" aria-label="What TailRef does">
+    <div class="wrap pillars-grid">
+      <div class="pillar">
+        <h2>Collect</h2>
+        <p>Drop images on an infinite board, group them, extract palettes and keep notes next to the reference they belong to.</p>
+      </div>
+      <div class="pillar">
+        <h2>Draw</h2>
+        <p>A pressure-sensitive ink engine with layers, masks, blend modes and Photoshop <code>.abr</code> brush support — trace straight on the image.</p>
+      </div>
+      <div class="pillar">
+        <h2>Pose</h2>
+        <p>Block a pose with the built-in mannequin, set up the light, then capture the render back to the board.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-is" class="section intro">
+    <div class="wrap intro-grid">
+      <div class="intro-copy">
+        <p class="eyebrow">What is TailRef Studio?</p>
+        <h2 class="section-title">A reference board, a drawing app and a 3D pose tool — in one window</h2>
+        <p>TailRef Studio is a free, open-source desktop app for artists who work from references. Instead of juggling a folder of images, a moodboard website, a painting app and a separate posing tool, you keep everything in one <code>.tail</code> project on your own machine.</p>
+        <p>Collect images on an infinite reference board, trace or annotate straight on top of them with pressure-sensitive brushes, and block a pose with the built-in 3D mannequin. When the reference is ready, export it to your painting app as an image or PDF — or keep drawing in TailRef.</p>
+        <p>It runs on Windows, macOS and Linux, needs no account and sends no telemetry. The full source is on <a href="https://github.com/Roxsmb/tailref" rel="noopener">GitHub</a> under GPL-3.0-or-later.</p>
+      </div>
+      <aside class="intro-side">
+        <h3>Built for</h3>
+        <ul class="intro-list">
+          <li><strong>Illustrators</strong> collecting references before a painting</li>
+          <li><strong>Concept artists</strong> blocking poses and lighting fast</li>
+          <li><strong>Comic and manga artists</strong> keeping panels consistent</li>
+          <li><strong>Students</strong> studying anatomy from photo references</li>
+          <li><strong>Hobbyists</strong> who want one free app instead of five</li>
+        </ul>
+        <a class="link-arrow" href="#download">Download TailRef <span aria-hidden="true">→</span></a>
+      </aside>
+    </div>
+  </section>
+
+  <section id="news" class="section news">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">News</h2>
+        <a class="btn btn-outline" href="news/">See all updates</a>
+      </div>
+
+      <div class="news-grid" data-news-list data-news-base="news/" data-news-limit="4" data-news-feed="news.json">
+        <article class="news-card" data-date="2026-11-24">
+          <h3><a href="news/tailref-is-now-playable-in-your-browser.html" rel="noopener">TailRef is now playable in your browser</a></h3>
+          <p class="news-date">24 November 2026</p>
+          <p class="news-excerpt">Try TailRef without installing anything. Press <em>Run tool</em> on the itch.io page and the workspace opens right in the browser: drop in references, arrange the board, draw.</p>
+          <a class="btn btn-outline btn-xs" href="news/tailref-is-now-playable-in-your-browser.html" rel="noopener" >Read more<span class="sr-only">: TailRef is now playable in your browser</span></a>
+        </article>
+
+        <article class="news-card" data-release="1.4.4" data-date="2026-11-24">
+          <h3><a href="news/tailref-studio-144-is-out-now-on-macos.html" rel="noopener">TailRef Studio 1.4.4 is out — now on macOS</a></h3>
+          <p class="news-date">24 November 2026</p>
+          <p class="news-excerpt">The same workspace as on Windows and Linux, now with Apple silicon and Intel builds — collect references, draw over them and pose 3D models in one window.</p>
+          <a class="btn btn-outline btn-xs" href="news/tailref-studio-144-is-out-now-on-macos.html" rel="noopener" >Read more<span class="sr-only">: TailRef Studio 1.4.4 is out — now on macOS</span></a>
+        </article>
+
+        <article class="news-card" data-release="1.4.3" data-date="2026-11-23">
+          <h3><a href="news/tailref-studio-143-is-out-now-on-linux.html" rel="noopener">TailRef Studio 1.4.3 is out — now on Linux</a></h3>
+          <p class="news-date">23 November 2026</p>
+          <p class="news-excerpt">AppImage, deb and rpm builds arrive. The reference board, the ink engine and the 3D pose tool run on Linux exactly as they do on Windows.</p>
+          <a class="btn btn-outline btn-xs" href="news/tailref-studio-143-is-out-now-on-linux.html" rel="noopener" >Read more<span class="sr-only">: TailRef Studio 1.4.3 is out — now on Linux</span></a>
+        </article>
+
+        <article class="news-card" data-release="1.4.2" data-date="2026-11-21">
+          <h3><a href="news/tailref-studio-142-is-out-and-it-updates-itself-now.html" rel="noopener">TailRef Studio 1.4.2 is out — and it updates itself now</a></h3>
+          <p class="news-date">21 November 2026</p>
+          <p class="news-excerpt">TailRef arrives on itch.io, with an in-app updater so new versions land without hunting for installers. Free, open source, no account required.</p>
+          <a class="btn btn-outline btn-xs" href="news/tailref-studio-142-is-out-and-it-updates-itself-now.html" rel="noopener" >Read more<span class="sr-only">: TailRef Studio 1.4.2 is out — and it updates itself now</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="wrap">
+      <h2 class="section-title">Everything in one project</h2>
+      <p class="section-sub">No more alt-tabbing between an image viewer, a moodboard, a drawing app and a posing tool.</p>
+
+      <article class="feature">
+        <div class="feature-media">
+          <picture><source srcset="assets/board.webp" type="image/webp"><img src="assets/board.jpg" width="1920" height="1080" loading="lazy" alt="Reference board with grouped images, colour palettes and selected images" decoding="async"></picture>
+        </div>
+        <div class="feature-copy">
+          <h3>The reference board</h3>
+          <p>An infinite canvas built for collecting. Drag files in, arrange and group them, lock what should not move, and read the palette straight out of an image.</p>
+          <ul class="checks">
+            <li>Infinite board with groups, notes and text</li>
+            <li>Palette extraction from any image</li>
+            <li>ArtStation and Pinterest panels in a sandbox</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="feature reverse">
+        <div class="feature-media">
+          <picture><source srcset="assets/draw.webp" type="image/webp"><img src="assets/draw.jpg" width="1920" height="1080" loading="lazy" alt="Drawing over a reference image with the brush engine and the FX stack" decoding="async"></picture>
+        </div>
+        <div class="feature-copy">
+          <h3>Draw over the reference</h3>
+          <p>A pressure-sensitive ink engine with layers, masks, blend modes and stabilisers. Trace, paint or annotate on the image itself — and bring the Photoshop brushes you already use.</p>
+          <ul class="checks">
+            <li>Layers, masks, blend modes, stabilisers</li>
+            <li>Imports and exports <code>.abr</code> brush libraries</li>
+            <li>Native brush editor with per-brush presets</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="feature">
+        <div class="feature-media">
+          <picture><source srcset="assets/pose.webp" type="image/webp"><img src="assets/pose.jpg" width="1920" height="1080" loading="lazy" alt="Posing a 3D mannequin and capturing renders to the reference board" decoding="async"></picture>
+        </div>
+        <div class="feature-copy">
+          <h3>Pose in 3D</h3>
+          <p>Start with the built-in two-figure mannequin, set up lighting and an HDR environment, then capture the pass you need straight to the board.</p>
+          <ul class="checks">
+            <li>Built-in two-figure mannequin, ready to pose</li>
+            <li>IK, gizmos, lighting and HDR environments</li>
+            <li>Beauty, alpha, depth, normal and wireframe passes up to 8K</li>
+            <li>Custom model import <span class="soon">in progress</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="feature reverse">
+        <div class="feature-media">
+          <picture><source srcset="assets/editor.webp" type="image/webp"><img src="assets/editor.jpg" width="1920" height="1080" loading="lazy" alt="The built-in image editor with crop, resize and adjustment tools" decoding="async"></picture>
+        </div>
+        <div class="feature-copy">
+          <h3>Grade and edit in place</h3>
+          <p>Select any number of references and grade them together — saturation, brightness, contrast, warmth, rotate, flip and crop presets — with a non-destructive FX stack and a before/after preview.</p>
+          <ul class="checks">
+            <li>Batch grading across a whole selection</li>
+            <li>Non-destructive FX stack with presets</li>
+            <li>Crop, resize and export without leaving the app</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="screens" class="section section-soft">
+    <div class="wrap">
+      <h2 class="section-title">A look inside</h2>
+      <p class="section-sub">Captured from the app, not mockups.</p>
+      <div class="gallery">
+        <figure>
+          <a href="assets/board.jpg" target="_blank" rel="noopener"><picture><source srcset="assets/board.webp" type="image/webp"><img src="assets/board.jpg" width="1920" height="1080" loading="lazy" alt="Reference board with grouped images and palettes" decoding="async"></picture></a>
+          <figcaption>Reference board</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/pose.jpg" target="_blank" rel="noopener"><picture><source srcset="assets/pose.webp" type="image/webp"><img src="assets/pose.jpg" width="1920" height="1080" loading="lazy" alt="3D mannequin posed and captured to the board" decoding="async"></picture></a>
+          <figcaption>3D pose and capture</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/draw.jpg" target="_blank" rel="noopener"><picture><source srcset="assets/draw.webp" type="image/webp"><img src="assets/draw.jpg" width="1920" height="1080" loading="lazy" alt="Drawing over a reference with the FX stack open" decoding="async"></picture></a>
+          <figcaption>Drawing and FX stack</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/editor.jpg" target="_blank" rel="noopener"><picture><source srcset="assets/editor.webp" type="image/webp"><img src="assets/editor.jpg" width="1920" height="1080" loading="lazy" alt="The built-in image editor" decoding="async"></picture></a>
+          <figcaption>Image editor</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/themes.jpg" target="_blank" rel="noopener"><picture><source srcset="assets/themes.webp" type="image/webp"><img src="assets/themes.jpg" width="1320" height="742" loading="lazy" alt="Interface themes" decoding="async"></picture></a>
+          <figcaption>Themes and skins</figcaption>
+        </figure>
+        <figure>
+          <a href="assets/export.jpg" target="_blank" rel="noopener"><picture><source srcset="assets/export.webp" type="image/webp"><img src="assets/export.jpg" width="1600" height="900" loading="lazy" alt="Export dialog" decoding="async"></picture></a>
+          <figcaption>Export</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="section download">
+    <div class="wrap">
+      <h2 class="section-title">Download TailRef</h2>
+      <p class="section-sub">
+        Version <strong data-version>1.4.4</strong> · free, no account required.
+        <span class="os-hint" data-os-hint hidden></span>
+      </p>
+
+      <div class="os-grid">
+        <article class="os-card" data-os="windows">
+          <header class="os-head">
+            <span class="os-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm8.6-1.2L21 3v8.5h-9.4V4.3ZM3 12.5h7.5v7.1L3 18.5v-6Zm8.6 0H21V21l-9.4-1.3v-7.2Z"/></svg>
+            </span>
+            <div>
+              <h3>Windows</h3>
+              <p class="os-sub">Windows 10 and 11 · 64-bit</p>
+            </div>
+          </header>
+          <a class="btn btn-block" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Setup.exe" data-asset="Windows-{v}-Setup.exe">Installer · 121 MB</a>
+          <a class="link-quiet" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Portable.exe" data-asset="Windows-{v}-Portable.exe">Portable version · 109 MB</a>
+        </article>
+
+        <article class="os-card" data-os="macos">
+          <header class="os-head">
+            <span class="os-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.9-1.5-.1-2.8.8-3.5.8s-1.9-.8-3.1-.8c-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.4 3 2.3 1.2 0 1.6-.7 3.1-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.6-1-2.6-3.7ZM14.2 5.4c.6-.8 1.1-1.9.9-3-.9.1-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3Z"/></svg>
+            </span>
+            <div>
+              <h3>macOS</h3>
+              <p class="os-sub">macOS 12 or newer</p>
+            </div>
+          </header>
+          <a class="btn btn-block" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/macOS-TailRef-1.4.4-arm64.dmg" data-asset="macOS-{v}-arm64.dmg">Apple silicon · 122 MB</a>
+          <a class="link-quiet" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/macOS-TailRef-1.4.4-x64.dmg" data-asset="macOS-{v}-x64.dmg">Intel · 128 MB</a>
+        </article>
+
+        <article class="os-card" data-os="linux">
+          <header class="os-head">
+            <span class="os-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="m7 9.5 2.5 2.5L7 14.5"/><path d="M12.5 15H17"/></svg>
+            </span>
+            <div>
+              <h3>Linux</h3>
+              <p class="os-sub">x86_64 · AppImage, deb, rpm</p>
+            </div>
+          </header>
+          <a class="btn btn-block" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-x86_64.AppImage" data-asset="Linux-{v}-x86_64.AppImage">AppImage · 126 MB</a>
+          <a class="link-quiet" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-amd64.deb" data-asset="Linux-{v}-amd64.deb">Debian package · 101 MB</a>
+          <a class="link-quiet" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-x86_64.rpm" data-asset="Linux-{v}-x86_64.rpm">Fedora package · 90 MB</a>
+        </article>
+      </div>
+
+      <div class="dl-notes">
+        <div>
+          <h3>Also available</h3>
+          <ul class="link-list">
+            <li><a href="https://github.com/Roxsmb/tailref/releases" rel="noopener">All versions and release notes</a></li>
+            <li><a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/SHA256SUMS.txt" data-asset="SHA256SUMS.txt">SHA-256 checksums</a></li>
+            <li><a href="https://roxsmb.itch.io/tailref" rel="noopener">Play the browser demo on itch.io</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Requirements</h3>
+          <ul class="link-list plain">
+            <li>64-bit Windows 10/11, macOS 12+ or Linux x86_64</li>
+            <li>4 GB RAM or more</li>
+            <li>A GPU with WebGL 2 for the 3D pose tool</li>
+            <li>About 600 MB of disk space</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="dl-warning"><strong>macOS:</strong> builds are ad-hoc signed but not notarized by Apple. On first launch, right-click the app and choose <em>Open</em>.</p>
+    </div>
+  </section>
+
+  <section id="foss" class="section section-soft foss">
+    <div class="wrap">
+      <h2 class="section-title">Free and open source, forever</h2>
+      <p class="section-sub">TailRef is licensed under GPL-3.0-or-later and built in the open. Use it, study it, change it, ship work made with it — commercially too.</p>
+      <div class="foss-grid">
+        <div><h3>No account, no telemetry</h3><p>Download and start working. Nothing phones home.</p></div>
+        <div><h3>Offline by default</h3><p>Everything runs locally; only the optional reference panels use the network.</p></div>
+        <div><h3>Your files stay yours</h3><p>Projects are plain <code>.tail</code> files with backups and recovery.</p></div>
+        <div><h3>Source on GitHub</h3><p>Issues, releases and the full history are public.</p></div>
+      </div>
+      <p class="foss-cta">
+        <a class="btn btn-ghost" href="https://github.com/Roxsmb/tailref" rel="noopener">View the source</a>
+        <a class="btn btn-ghost" href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">Read the license</a>
+      </p>
+    </div>
+  </section>
+
+  <section id="faq" class="section faq">
+    <div class="wrap">
+      <h2 class="section-title">Questions</h2>
+      <details>
+        <summary>Is TailRef really free?</summary>
+        <p>Yes. TailRef is free and open source under GPL-3.0-or-later. There is no paid tier, no subscription and no account. Donations are optional.</p>
+      </details>
+      <details>
+        <summary>Does it work offline?</summary>
+        <p>Yes. Everything runs on your machine and projects are plain <code>.tail</code> files on your disk. Only the optional ArtStation/Pinterest panels and update checks use the internet.</p>
+      </details>
+      <details>
+        <summary>Which formats can I bring in and out?</summary>
+        <p>Images in the common web and print formats, plus Photoshop <code>.abr</code> brush libraries. Export as PNG, JPEG, WebP, AVIF, BMP, ICO or PDF.</p>
+      </details>
+      <details>
+        <summary>Can I use my own 3D models?</summary>
+        <p>Not yet. The built-in two-figure mannequin covers most posing work today, and loading your own FBX, GLTF/GLB and OBJ files is being worked on right now — it will arrive in an update. Follow the <a href="https://roxsmb.itch.io/tailref/devlog" rel="noopener">devlog</a> to see when it lands.</p>
+      </details>
+      <details>
+        <summary>Does it replace Photoshop or Clip Studio?</summary>
+        <p>No. TailRef is built for the reference-and-blocking stage: collect, annotate, pose, and take the result into your painting app as an image or PDF.</p>
+      </details>
+      <details>
+        <summary>Why does macOS warn on first launch?</summary>
+        <p>The builds are ad-hoc signed but not notarized by Apple. Right-click the app and choose <em>Open</em> once; after that it launches normally.</p>
+      </details>
+      <details>
+        <summary>Where do I report a bug or ask for a feature?</summary>
+        <p>Open an issue on <a href="https://github.com/Roxsmb/tailref/issues" rel="noopener">GitHub</a>. Small reproductions with the project file attached are the fastest way to get a fix.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a class="brand brand-light" href="./">
+        <img class="brand-mark" src="assets/logo.png" width="36" height="36" alt="" decoding="async">
+        <span class="brand-text">TailRef<em>Studio</em></span>
+      </a>
+      <p>A free, open source workspace for artists who work from references.</p>
+    </div>
+
+    <nav class="foot-cols" aria-label="Footer">
+      <div>
+        <h3>Software</h3>
+        <a href="#download">Download</a>
+        <a href="https://github.com/Roxsmb/tailref/releases" rel="noopener">Releases</a>
+        <a href="https://github.com/Roxsmb/tailref" rel="noopener">Source code</a>
+        <a href="https://github.com/Roxsmb/tailref/issues" rel="noopener">Issues</a>
+      </div>
+      <div>
+        <h3>Community</h3>
+        <a href="https://roxsmb.itch.io/tailref" rel="noopener">itch.io page</a>
+        <a href="https://roxsmb.itch.io/tailref/devlog" rel="noopener">Devlog</a>
+        <a href="https://www.buymeacoffee.com/roxsmb" rel="noopener">Support the project</a>
+        <a href="https://roxsmb.github.io" rel="noopener">Portfolio</a>
+      </div>
+      <div>
+        <h3>Project</h3>
+        <a href="news/">News</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">License</a>
+        <a href="https://github.com/Roxsmb/tailref/blob/main/README.md" rel="noopener">Documentation</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="wrap foot-legal">
+    <span>© <span id="year">2026</span> Emre Melik Nameli · GPL-3.0-or-later</span>
+    <span>TailRef is not affiliated with Adobe, Autodesk or Pinterest.</span>
+  </div>
+</footer>
+
+<script src="releases.js" defer></script>
+<script src="main.js" defer></script>
+<script src="nav.js" defer></script>
+</body>
+</html>

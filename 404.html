@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — TailRef Studio</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/favicon.png" sizes="256x256" type="image/png">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .nf{min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0}
+  .nf h1{font-size:clamp(34px,6vw,58px);letter-spacing:-.04em;margin-bottom:14px}
+  .nf p{color:var(--muted);font-size:17px;margin-bottom:28px}
+  .nf .hero-cta{justify-content:center}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="./" aria-label="TailRef Studio — home">
+      <img class="brand-mark" src="assets/logo.png" width="36" height="36" alt="">
+      <span class="brand-text">TailRef<em>Studio</em></span>
+    </a>
+    <div class="head-actions" style="margin-left:auto">
+            <a class="head-link head-link-support" href="https://www.buymeacoffee.com/roxsmb" rel="noopener" aria-label="Support TailRef — buy me a coffee">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h11v5.2a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8.5Z"/><path d="M15 9.5h1.7a2.2 2.2 0 0 1 0 4.4H15"/><path d="M7.5 3.4v1.8M11 3v2.2"/></svg>
+        <span class="support-text">Support</span>
+      </a>
+      <a class="btn btn-sm" href="./">Back to the site</a>
+    </div>
+  </div>
+</header>
+
+<main class="nf">
+  <div class="wrap">
+    <h1>This page moved on.</h1>
+    <p>The link you followed does not exist any more. The download and the documentation are one click away.</p>
+    <div class="hero-cta">
+      <a class="btn btn-lg" href="./#download">Download TailRef</a>
+      <a class="btn btn-lg btn-ghost" href="./">Home</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-legal" style="border:0;padding-top:0">
+    <span>© <span id="year">2026</span> Emre Melik Nameli · GPL-3.0-or-later</span>
+    <span><a href="https://github.com/Roxsmb/tailref" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="nav.js" defer></script>
+</body>
+</html>
