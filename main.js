@@ -9,9 +9,9 @@
   const FALLBACK_VERSION = "1.4.4";
 
   const PRIMARY = {
-    windows: { label: "Download for Windows", asset: "Windows-{v}-Setup.exe", size: "121 MB" },
-    macos: { label: "Download for macOS", asset: "macOS-{v}-arm64.dmg", size: "122 MB" },
-    linux: { label: "Download for Linux", asset: "Linux-{v}-x86_64.AppImage", size: "126 MB" },
+    windows: { label: "Download for Windows", asset: "Windows-TailRef-{v}-Setup.exe", size: "121 MB" },
+    macos: { label: "Download for macOS", asset: "macOS-TailRef-{v}-arm64.dmg", size: "122 MB" },
+    linux: { label: "Download for Linux", asset: "Linux-TailRef-{v}-x86_64.AppImage", size: "126 MB" },
   };
 
   const OS_NAME = { windows: "Windows", macos: "macOS", linux: "Linux" };
