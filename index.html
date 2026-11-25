@@ -3,9 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TailRef Studio — Reference Board &amp; 3D Pose Tool for Artists</title>
-<meta name="description" content="Free, open-source app for artists: collect references on an infinite board, draw over them with pressure-sensitive ink and pose 3D models in one window.">
+<title>Reference Board &amp; Image Viewer for Artists — TailRef Studio</title>
+<meta name="description" content="A free, open-source reference image viewer and reference board for artists: pin images, draw over them, and pose a 3D mannequin. Windows, macOS and Linux.">
 <link rel="canonical" href="https://tailref.github.io/">
+<link rel="alternate" hreflang="en" href="https://tailref.github.io/">
+<link rel="alternate" hreflang="x-default" href="https://tailref.github.io/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#fcfbf8">
 <meta name="author" content="Emre Melik Nameli">
@@ -16,8 +18,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="TailRef Studio">
-<meta property="og:title" content="TailRef Studio — collect, draw and pose in one window">
-<meta property="og:description" content="A free, open source workspace for artists: reference board, pressure-sensitive ink and a 3D pose tool in one project.">
+<meta property="og:title" content="Reference board and image viewer for artists — TailRef Studio">
+<meta property="og:description" content="A free, open source reference board for artists: pin images, draw over them with pressure-sensitive ink and pose a 3D mannequin.">
 <meta property="og:url" content="https://tailref.github.io/">
 <meta property="og:image" content="https://tailref.github.io/assets/og.png">
 <meta property="og:image:width" content="1280">
@@ -25,9 +27,10 @@
 <meta property="og:image:alt" content="TailRef Studio workspace with a reference board, palettes and 3D poses">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TailRef Studio — collect, draw and pose in one window">
-<meta name="twitter:description" content="Free, open source reference board, ink workspace and 3D pose tool for artists.">
+<meta name="twitter:title" content="Reference board and image viewer for artists — TailRef Studio">
+<meta name="twitter:description" content="Free, open source reference board for artists: pin images, draw over them and pose a 3D mannequin.">
 <meta name="twitter:image" content="https://tailref.github.io/assets/og.png">
+<meta name="twitter:image:alt" content="TailRef Studio reference board with palettes and a 3D pose">
 
 <link rel="icon" href="assets/favicon.png" sizes="256x256" type="image/png">
 <link rel="apple-touch-icon" href="assets/favicon.png">
@@ -84,6 +87,12 @@
       "installUrl": "https://tailref.github.io/#download",
       "releaseNotes": "https://tailref.github.io/news/release.html",
       "description": "TailRef Studio keeps the whole reference loop in one project: images on an infinite board, pressure-sensitive ink on top of them and a 3D mannequin to block the pose.",
+      "keywords": "reference board, reference image viewer, reference board app, pose reference tool, draw over reference images, moodboard for artists, PureRef alternative",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-25",
+      "inLanguage": "en",
+      "softwareRequirements": "Windows 10/11 x64, macOS 12 or newer, or Linux x86_64 with GTK 3 and OpenGL",
+      "memoryRequirements": "8 GB RAM recommended",
       "featureList": [
         "Infinite reference board with groups, notes and palette extraction",
         "Pressure-sensitive ink engine with layers, masks and blend modes",
@@ -152,6 +161,14 @@
         },
         {
           "@type": "Question",
+          "name": "How is it different from PureRef?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both keep your images on one canvas and stay above your painting app. TailRef adds drawing on the reference, palette cards and 3D posing in the same project. PureRef remains the lighter choice for a tiny single-purpose pinboard."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Why does macOS warn on first launch?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -177,7 +194,7 @@
 
 <header class="site-head">
   <div class="wrap head-inner">
-    <a class="brand" href="./" aria-label="TailRef Studio — home">
+    <a class="brand" href="./">
       <img class="brand-mark" src="assets/logo.png" width="36" height="36" alt="" decoding="async">
       <span class="brand-text">TailRef<em>Studio</em></span>
     </a>
@@ -212,8 +229,8 @@
   <section class="hero">
     <div class="wrap hero-copy">
       <p class="eyebrow">Free and open source · Windows, macOS, Linux</p>
-      <h1>Collect. Draw. Pose.<span>In one window.</span></h1>
-      <p class="lede">TailRef Studio keeps the whole reference loop in a single project: images on an infinite board, pressure-sensitive ink on top of them, and a 3D mannequin to block the pose — all on your own machine.</p>
+      <h1>Collect. Draw. Pose.<span>On one reference board.</span></h1>
+      <p class="lede">A free, open-source workspace for artists: keep every reference on an infinite board, draw over it with pressure-sensitive ink, and block the pose with a 3D mannequin — all on your own machine.</p>
 
       <div class="hero-cta">
         <a class="btn btn-lg" href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Setup.exe" data-primary-download data-os-label>Download for Windows</a>
@@ -533,6 +550,10 @@
         <p>No. TailRef is built for the reference-and-blocking stage: collect, annotate, pose, and take the result into your painting app as an image or PDF.</p>
       </details>
       <details>
+        <summary>How is it different from PureRef?</summary>
+        <p>Both keep your images on one canvas and stay above your painting app. TailRef adds drawing on the reference, palette cards and 3D posing in the same project. If you want a tiny single-purpose pinboard, PureRef is the lighter choice — there is a <a href="pureref-alternative.html">full comparison</a> if you want the details.</p>
+      </details>
+      <details>
         <summary>Why does macOS warn on first launch?</summary>
         <p>The builds are ad-hoc signed but not notarized by Apple. Right-click the app and choose <em>Open</em> once; after that it launches normally.</p>
       </details>
@@ -574,6 +595,7 @@
         <h3>Project</h3>
         <a href="news/">News</a>
         <a href="#faq">FAQ</a>
+        <a href="pureref-alternative.html">Compare with PureRef</a>
         <a href="https://www.gnu.org/licenses/gpl-3.0.html" rel="noopener">License</a>
         <a href="https://github.com/Roxsmb/tailref/blob/main/README.md" rel="noopener">Documentation</a>
       </div>

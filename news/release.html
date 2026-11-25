@@ -6,8 +6,11 @@
 <title>Release notes — TailRef Studio</title>
 <meta name="description" content="Release notes and downloads for TailRef Studio, pulled from the GitHub releases.">
 <link rel="canonical" href="https://tailref.github.io/news/release.html">
+<link rel="alternate" hreflang="en" href="https://tailref.github.io/news/release.html">
+<link rel="alternate" hreflang="x-default" href="https://tailref.github.io/news/release.html">
 <link rel="alternate" type="application/rss+xml" title="TailRef Studio news" href="https://tailref.github.io/feed.xml">
 <meta name="theme-color" content="#fcfbf8">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Emre Melik Nameli">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
@@ -16,17 +19,50 @@
 <meta property="og:description" content="Release notes and downloads for TailRef Studio, pulled from the GitHub releases.">
 <meta property="og:url" content="https://tailref.github.io/news/release.html">
 <meta property="og:image" content="https://tailref.github.io/assets/og.png">
+<meta property="og:image:alt" content="TailRef Studio reference board with palettes and a 3D pose">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tailref.github.io/assets/og.png">
+<meta name="twitter:image:alt" content="TailRef Studio reference board with palettes and a 3D pose">
 <link rel="icon" href="../assets/favicon.png" sizes="256x256" type="image/png">
 <link rel="stylesheet" href="../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://tailref.github.io/news/release.html#page",
+      "url": "https://tailref.github.io/news/release.html",
+      "name": "TailRef Studio release notes",
+      "description": "Release notes and download links for every TailRef Studio version, from the GitHub releases.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://tailref.github.io/#website" },
+      "about": { "@id": "https://tailref.github.io/#app" },
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-25",
+      "breadcrumb": { "@id": "https://tailref.github.io/news/release.html#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tailref.github.io/news/release.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tailref.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "News", "item": "https://tailref.github.io/news/" },
+        { "@type": "ListItem", "position": 3, "name": "Release notes", "item": "https://tailref.github.io/news/release.html" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-head">
   <div class="wrap head-inner">
-    <a class="brand" href="../index.html" aria-label="TailRef Studio — home">
+    <a class="brand" href="../index.html">
       <img class="brand-mark" src="../assets/logo.png" width="36" height="36" alt="" decoding="async">
       <span class="brand-text">TailRef<em>Studio</em></span>
     </a>
@@ -58,16 +94,14 @@
     <article class="post" id="release-post">
       <p class="post-kicker"><a href="./">News</a> <span class="dot" aria-hidden="true"></span> Release notes</p>
 
-      <p class="release-loading" data-release-loading>Loading release notes…</p>
+      <h1>TailRef Studio release notes</h1>
+      <p class="post-meta">
+        <strong data-release-date>24 November 2026</strong>
+        <span class="dot" aria-hidden="true"></span> Emre Melik Nameli
+        <span class="dot" aria-hidden="true"></span> GPL-3.0-or-later
+      </p>
 
       <div data-release-article hidden>
-        <h1>Release notes</h1>
-        <p class="post-meta">
-          <strong data-release-date></strong>
-          <span class="dot" aria-hidden="true"></span> Emre Melik Nameli
-          <span class="dot" aria-hidden="true"></span> GPL-3.0-or-later
-        </p>
-
         <div class="post-body" data-release-body></div>
         <div data-release-downloads></div>
 
@@ -78,11 +112,25 @@
         </nav>
       </div>
 
-      <div data-release-fallback hidden>
-        <h1>Release notes</h1>
-        <p class="section-sub">The release notes could not be loaded right now — GitHub may be rate-limiting the request. Everything is still available on the releases page.</p>
-        <p><a class="btn" href="https://github.com/Roxsmb/tailref/releases" rel="noopener">Open GitHub releases</a></p>
-        <p class="release-note"><a href="./">← Back to the news list</a></p>
+      <div data-release-fallback>
+        <div class="post-body">
+          <h2>Version 1.4.4 — 24 November 2026</h2>
+          <p>TailRef Studio 1.4.4 adds native macOS builds for Apple silicon and Intel, opens <code>.tail</code> boards straight from Finder, and fixes a long list of settings that saved a value without applying it.</p>
+          <ul>
+            <li><strong>macOS:</strong> separate arm64 and Intel disk images, built and launched as part of the release check.</li>
+            <li><strong>Finder integration:</strong> double-clicking a <code>.tail</code> board opens it in the running window or starts TailRef with it.</li>
+            <li><strong>Settings audit:</strong> high contrast, custom themes, cursor-anchored zoom, editor grid step and the narrow-panel layout now work as labelled.</li>
+            <li><strong>Ten languages</strong> with no key falling back to English.</li>
+          </ul>
+          <h2>Download version 1.4.4</h2>
+          <ul>
+            <li><a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Setup.exe" rel="noopener">Windows installer (.exe)</a> · <a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Windows-TailRef-1.4.4-Portable.exe" rel="noopener">portable</a></li>
+            <li><a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/macOS-TailRef-1.4.4-arm64.dmg" rel="noopener">macOS Apple silicon (.dmg)</a> · <a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/macOS-TailRef-1.4.4-x64.dmg" rel="noopener">Intel (.dmg)</a></li>
+            <li><a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-x86_64.AppImage" rel="noopener">Linux AppImage</a> · <a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-amd64.deb" rel="noopener">deb</a> · <a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/Linux-TailRef-1.4.4-x86_64.rpm" rel="noopener">rpm</a></li>
+            <li><a href="https://github.com/Roxsmb/tailref/releases/download/v1.4.4/SHA256SUMS.txt" rel="noopener">SHA256 checksums</a></li>
+          </ul>
+          <p>The complete notes, every earlier release and the source are on <a href="https://github.com/Roxsmb/tailref/releases" rel="noopener">GitHub Releases</a>. You can also read the <a href="tailref-studio-144-is-out-now-on-macos.html">1.4.4 announcement</a>.</p>
+        </div>
       </div>
     </article>
   </div>
