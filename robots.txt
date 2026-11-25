@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://tailref.github.io/sitemap.xml
+Sitemap: https://tailref.github.io/sitemap-1.xml
