@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-25",
+  "generated": "2026-11-26",
   "items": [
     {
       "source": "release",
@@ -66,14 +66,14 @@
       "source": "itch",
       "title": "TailRef is now playable in your browser",
       "date": "2026-11-24",
-      "excerpt": "Press Run tool on the itch.io page and the workspace opens in your browser: drop in references, arrange the board, draw, pose. Here is what the demo can and cannot do.",
+      "excerpt": "Try TailRef without installing anything The TailRef Studio page now has a playable demo. Press Run tool at the top of the page and the workspace opens right in your browser: drop…",
       "url": "https://roxsmb.itch.io/tailref/devlog/1804342/tailref-is-now-playable-in-your-browser"
     },
     {
       "source": "itch",
-      "title": "TailRef Studio 1.4.4 is out - now on macOS",
+      "title": "TailRef Studio 1.4.4 is out — now on macOS",
       "date": "2026-11-24",
-      "excerpt": "Native builds for Apple silicon and Intel, .tail boards that open from Finder, a release check that starts the packaged app before shipping, and a long pass over the settings panel.",
+      "excerpt": "TailRef Studio now runs on macOS. It is the same workspace as on Windows and Linux — collect references, draw over them and pose 3D models in one window — and 1.4.4 is the first…",
       "url": "https://roxsmb.itch.io/tailref/devlog/1804278/tailref-studio-144-is-out-now-on-macos"
     },
     {
@@ -129,9 +129,9 @@
     },
     {
       "source": "itch",
-      "title": "TailRef Studio 1.4.3 is out - now on Linux",
+      "title": "TailRef Studio 1.4.3 is out — now on Linux",
       "date": "2026-11-23",
-      "excerpt": "AppImage, deb and rpm builds with desktop integration and file associations. The native inkcore module is now compiled per platform instead of shipping a Windows binary.",
+      "excerpt": "TailRef Studio now runs on Linux. It is the same workspace as on Windows — collect references, draw over them and pose 3D models in one window — and 1.4.3 is the first release…",
       "url": "https://roxsmb.itch.io/tailref/devlog/1800768/tailref-studio-143-is-out-now-on-linux"
     },
     {
@@ -172,9 +172,9 @@
     },
     {
       "source": "itch",
-      "title": "TailRef Studio 1.4.2 is out - and it updates itself now",
+      "title": "TailRef Studio 1.4.2 is out — and it updates itself now",
       "date": "2026-11-21",
-      "excerpt": "The first build on itch.io: automatic updates from GitHub Releases, GPL-3.0-or-later licensing and a full security audit pass.",
+      "excerpt": "TailRef Studio is now on itch.io. TailRef is a free, open-source Windows workspace for artists who work from references: collect references, draw over them and pose 3D models in…",
       "url": "https://roxsmb.itch.io/tailref/devlog/1796860/tailref-studio-142-is-out-and-it-updates-itself-now"
     },
     {
